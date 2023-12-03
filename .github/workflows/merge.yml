@@ -34,7 +34,6 @@ jobs:
         uses: pascalgn/automerge-action@v0.14.3
         if: success()
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MERGE_LABELS: ""
           MERGE_REMOVE_LABELS: "automerge"
           MERGE_METHOD: "merge"
