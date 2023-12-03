@@ -47,6 +47,7 @@ public class Solution8Test {
         assertEquals(solution.numIslands(grip12),1);
         assertEquals(solution.numIslands(grip12),0);
         assertEquals(1,1);
+        assertEquals(1,1);
     }
 
 
