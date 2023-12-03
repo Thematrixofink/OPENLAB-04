@@ -49,7 +49,6 @@ public class Solution8Test {
         assertEquals(1,1);
         assertEquals(1,1);
         assertEquals(2,2);
-        assertEquals(1,1);
     }
 
 

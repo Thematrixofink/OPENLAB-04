@@ -27,7 +27,7 @@ jobs:
   auto-merge:
     needs: run_tests
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.event.pull_request.state == 'open'
+    if: github.event_name == 'pull_request'
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
@@ -38,7 +38,6 @@ jobs:
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_LABELS: "auto-merge,ok-to-merge"
           MERGE_REMOVE_LABELS: "auto-merge"
           MERGE_METHOD: "merge"
           MERGE_COMMIT_MESSAGE: "pull-request-title"
