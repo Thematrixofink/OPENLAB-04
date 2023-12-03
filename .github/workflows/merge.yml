@@ -1,9 +1,6 @@
 name: tests and auto merge
 
-on:
-  push:
-  pull_request:
-    types: [synchronize, opened, reopened]
+on: push
 
 jobs:
   run_tests:
