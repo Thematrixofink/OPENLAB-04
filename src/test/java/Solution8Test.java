@@ -1,8 +1,9 @@
+
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-class L2021112989_Solution8_Test {
+public class Solution8Test {
 
     /**
      * 测试策略
@@ -45,5 +46,6 @@ class L2021112989_Solution8_Test {
         assertEquals(solution.numIslands(grip11),3);
         assertEquals(solution.numIslands(grip12),1);
     }
+
 
 }
