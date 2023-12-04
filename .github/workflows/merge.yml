@@ -1,9 +1,8 @@
-name: tests and auto merge
+name: Tests and Auto Merge
 
 on:
-  push:
   pull_request:
-    types: [synchronize, opened, reopened]
+    types: [opened, synchronize, reopened]
 
 jobs:
   run_tests:
@@ -27,19 +26,17 @@ jobs:
   auto-merge:
     needs: run_tests
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.event.pull_request.state == 'open'
+    if: github.event.pull_request.state == 'open'
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
       - name: Auto merge PR
         uses: pascalgn/automerge-action@v0.14.3
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_LABELS: "auto-merge,ok-to-merge"
-          MERGE_REMOVE_LABELS: "auto-merge"
+          MERGE_LABELS: ""
+          MERGE_REMOVE_LABELS: "automerge"
           MERGE_METHOD: "merge"
           MERGE_COMMIT_MESSAGE: "pull-request-title"
           MERGE_FORKS: "false"
